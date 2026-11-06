@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#141210">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Odium Fati">
+<meta name="apple-mobile-web-app-title" content="Amor Fati">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-512.png">
-<title>Odium Fati — Journal & Streaks</title>
+<title>Amor Fati — Journal & Streaks</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23221c14'/%3E%3Ctext x='50' y='70' font-size='56' text-anchor='middle' fill='%23f6f3ec'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
 <style>
 :root{--r:14px;--serif:Georgia,'Iowan Old Style','Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
@@ -79,26 +79,15 @@ main{max-width:760px;margin:0 auto;padding:16px 14px 120px}
 .home{min-height:64vh;display:flex;flex-direction:column;justify-content:center;gap:28px}
 .home .epi{font-size:23px;line-height:1.55;border:0;padding:0;color:var(--tx)}
 .home .btn{align-self:flex-start}
-
-/* Odium Fati v2 — home, projects, and adaptive momentum */
-.home{min-height:auto;display:block;padding-top:8px}.home-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:14px 0 20px}.home-head h1{font-size:clamp(29px,7vw,42px);line-height:1.05;margin:4px 0 0;letter-spacing:-1.2px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);font-weight:700}.clock{font:18px var(--serif);font-variant-numeric:tabular-nums}.code-card{position:relative;overflow:hidden;background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:22px 20px 18px;box-shadow:0 14px 38px #00000008}.code-card:before{content:'✦';position:absolute;right:14px;top:-26px;font:120px var(--serif);color:var(--ac);opacity:.055;pointer-events:none}.code-label{display:flex;justify-content:space-between;align-items:center;gap:8px}.code-label span{font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:var(--mu)}.code-quote{font:clamp(23px,5.8vw,31px)/1.3 var(--serif);letter-spacing:-.5px;margin:20px 0 16px;max-width:570px}.code-author{font-size:12px;color:var(--mu)}.code-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--ln);padding-top:12px;margin-top:17px}.code-foot button{font-size:12px;text-decoration:underline;text-underline-offset:3px}.today-panel{margin-top:18px}.section-line{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:25px 0 10px}.section-line h2{font-size:19px;margin:0}.today-entry{display:flex;align-items:center;gap:13px;padding:15px;border:1px solid var(--ln);border-radius:14px;background:var(--sf)}.today-mark{width:42px;height:48px;flex:none;border-radius:9px;background:var(--bg2);display:grid;place-items:center;font:22px var(--serif)}.today-entry .te-copy{flex:1;min-width:0}.today-entry .te-copy b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.today-entry .te-copy span{font-size:12px;color:var(--mu)}.home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mini-stat{border:1px solid var(--ln);border-radius:13px;padding:13px;background:var(--sf)}.mini-stat strong{display:block;font:25px var(--serif)}.mini-stat span{font-size:11px;color:var(--mu)}.why-card{margin-top:22px;padding:17px 18px;border-radius:14px;background:var(--bg2);border-left:3px solid var(--ac)}.why-card b{font:italic 18px var(--serif)}.why-card p{margin:6px 0 0;color:var(--mu);font-size:13px}.project-card{padding:16px;border:1px solid var(--ln);background:var(--sf);border-radius:14px;cursor:pointer}.project-card h3{margin:0;font-size:19px}.project-meta{font-size:12px;color:var(--mu);margin-top:4px}.project-progress{height:5px;border-radius:9px;background:var(--bg2);overflow:hidden;margin-top:13px}.project-progress i{display:block;height:100%;background:var(--ac);border-radius:9px}.task-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--ln)}.task-row:last-child{border-bottom:0}.task-check{width:21px;height:21px;flex:none;border:1px solid var(--mu);border-radius:6px;display:grid;place-items:center;font-size:12px}.task-check.done{background:var(--ac);color:var(--at);border-color:var(--ac)}.task-done{text-decoration:line-through;color:var(--mu)}.project-note{min-height:100px}.tag-pill{display:inline-flex;border:1px solid var(--ln);border-radius:99px;padding:4px 9px;font-size:11px;color:var(--mu)}#tabs a{flex:1;min-width:0;padding:6px 3px;font-size:10px}#tabs{padding-left:max(4px,env(safe-area-inset-left,0px));padding-right:max(4px,env(safe-area-inset-right,0px))}#tabs b{font-size:17px}@media(min-width:600px){#tabs a{flex:0 1 90px;padding:6px 12px;font-size:11px}.home-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.home-head{margin-top:20px}.code-card{padding:28px}.home .code-quote{max-width:650px}}
-
-#lock[hidden]{display:none}
-#lock{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
-#lock .pad{display:grid;grid-template-columns:repeat(3,64px);gap:12px}
-#lock .pad button{width:64px;height:64px;border-radius:50%;background:var(--sf);border:1px solid var(--ln);font:20px var(--serif)}
-#lock .dots{display:flex;gap:10px}#lock .dots i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--mu)}#lock .dots i.f{background:var(--ac);border-color:var(--ac)}
 </style>
 </head>
 <body>
-<header id="top"><b class="serif">✦ Odium Fati</b><span class="mu sm serif"><span id="tl"></span> · <span id="net"></span></span></header>
+<header id="top"><b class="serif">✦ Amor Fati</b><span class="mu sm serif"><span id="tl"></span> · <span id="net"></span></span></header>
 <div id="wall"><div class="l"></div><div class="l"></div></div>
-<div id="lock" hidden><div class="serif" style="font-size:24px">✦ Odium Fati</div><div class="mu sm" id="lockMsg">Enter your PIN</div><div class="dots" id="lockDots"></div><div class="pad" id="lockPad"></div></div>
 <main id="app"></main>
 <nav id="tabs"></nav>
 <div id="modal" hidden></div><div id="toast"></div>
 <input type="file" id="pin" hidden multiple accept="image/*">
-<input type="file" id="projectpin" hidden multiple accept="image/*">
 <input type="file" id="bin" hidden accept=".json">
 <script>
 "use strict";
@@ -120,14 +109,14 @@ const TH={white:"#f6f3ec",black:"#0f0e0c",red:"#170b0a",blue:"#0a111c",green:"#0
 
 /* ---- storage (IndexedDB, on this device only) ---- */
 const DB={db:null,
- open(){return new Promise((ok,no)=>{const r=indexedDB.open("keepsake",3);
-  r.onupgradeneeded=e=>{const d=e.target.result;["entries","streaks","projects"].forEach(n=>d.objectStoreNames.contains(n)||d.createObjectStore(n,{keyPath:"id"}));d.objectStoreNames.contains("meta")||d.createObjectStore("meta",{keyPath:"key"})};
-  r.onsuccess=()=>{DB.db=r.result;ok()};r.onerror=()=>{if(r.error&&r.error.name==="VersionError"){const q=indexedDB.open("keepsake");q.onsuccess=()=>{DB.db=q.result;ok()};q.onerror=()=>no(q.error)}else no(r.error)}})},
+ open(){return new Promise((ok,no)=>{const r=indexedDB.open("amorfati",2);
+  r.onupgradeneeded=e=>{const d=e.target.result;["entries","streaks"].forEach(n=>d.objectStoreNames.contains(n)||d.createObjectStore(n,{keyPath:"id"}));d.objectStoreNames.contains("meta")||d.createObjectStore("meta",{keyPath:"key"})};
+  r.onsuccess=()=>{DB.db=r.result;ok()};r.onerror=()=>no(r.error)})},
  tx(n,f){return new Promise((ok,no)=>{const t=DB.db.transaction(n,"readwrite"),q=f(t.objectStore(n));t.oncomplete=()=>ok(q&&q.result);t.onerror=()=>no(t.error)})},
  all(n){return DB.tx(n,s=>s.getAll())},put(n,v){return DB.tx(n,s=>s.put(v))},del(n,id){return DB.tx(n,s=>s.delete(id))},clear(n){return DB.tx(n,s=>s.clear())}};
-const S={entries:[],streaks:[],projects:[],set:{theme:null,lastBackup:null}};
+const S={entries:[],streaks:[],set:{theme:null,lastBackup:null}};
 let ED=null,calM=new Date(new Date().getFullYear(),new Date().getMonth(),1),q="";
-async function load(){S.entries=await DB.all("entries");S.streaks=(await DB.all("streaks")).sort((a,b)=>a.createdAt-b.createdAt);S.projects=(await DB.all("projects")).sort((a,b)=>b.updatedAt-a.updatedAt);
+async function load(){S.entries=await DB.all("entries");S.streaks=(await DB.all("streaks")).sort((a,b)=>a.createdAt-b.createdAt);
  const m=(await DB.all("meta")).find(x=>x.key==="settings");S.set={theme:null,lastBackup:null,...(m?m.value:{})}}
 const saveSet=()=>DB.put("meta",{key:"settings",value:S.set});
 const eById=id=>S.entries.find(e=>e.id===id),sById=id=>S.streaks.find(s=>s.id===id);
@@ -156,12 +145,12 @@ const exc=e=>{const t=(e.body||"").replace(/[#*]/g," ").replace(/\s+/g," ").trim
 
 /* ---- shell / router ---- */
 const route=()=>(location.hash.slice(1)||"/home").split("/").filter(Boolean);
-const TABS=[["home","Today","✦"],["diary","Journal","❝"],["projects","Projects","◇"],["cal","Calendar","▦"],["streaks","Streaks",FLAME],["settings","More","⚙"]];
+const TABS=[["home","Today","✦"],["diary","Journal","❝"],["cal","Calendar","▦"],["streaks","Streaks",FLAME],["settings","More","⚙"]];
 function view(h,after){$("#app").innerHTML=h;const c=route()[0];
- const on={entry:"diary",edit:"diary",streak:"streaks",project:"projects"}[c]||c;
+ const on={entry:"diary",edit:"diary",streak:"streaks"}[c]||c;
  $("#tabs").innerHTML=TABS.map(([i,l,g])=>`<a href="#/${i}" class="${on===i?"on":""}"><b>${g}</b>${l}</a>`).join("");
  $("#tl").textContent=fs(today());wall(c==='home'?'home':c);after&&after();scrollTo(0,0)}
-function render(){const r=route();({diary:vDiary,entry:()=>vEntry(r[1]),edit:()=>vEdit(r[1],r[2],r[3]),streaks:vStreaks,streak:()=>vStreak(r[1]),cal:vCal,projects:vProjects,project:()=>vProject(r[1]),settings:vSet}[r[0]]||vHome)()}
+function render(){const r=route();({diary:vDiary,entry:()=>vEntry(r[1]),edit:()=>vEdit(r[1],r[2],r[3]),streaks:vStreaks,streak:()=>vStreak(r[1]),cal:vCal,settings:vSet}[r[0]]||vHome)()}
 addEventListener("hashchange",render);
 let wt=null,wi=0,wp=null,wl=0;
 function wall(page){const el=$("#wall"),L=WALLS[page];clearInterval(wt);
@@ -181,88 +170,11 @@ function eItem(e){const d=fd(e.date),dots=(e.streakIds||[]).map(sById).filter(Bo
  <div class="mu sm">${esc(exc(e))||"<i>Photos only</i>"}</div>
  ${e.photos.length?`<div class="th">${e.photos.slice(0,5).map(p=>`<img src="${p.src}" alt="">`).join("")}</div>`:""}</div></div>`}
 
-const QUOTES=[
- ["My formula for greatness in a human being is amor fati: that one wants nothing to be different, not forward, not backward, not in all eternity.","Friedrich Nietzsche"],
- ["Become who you are.","Friedrich Nietzsche"],["He who has a why to live can bear almost any how.","Friedrich Nietzsche"],
- ["The unexamined life is not worth living.","Socrates"],["I know that I know nothing.","Socrates — traditional attribution"],
- ["The beginning is the most important part of the work.","Plato"],["Courage is knowing what not to fear.","Plato"],
- ["We suffer more often in imagination than in reality.","Seneca"],["No man is free who is not master of himself.","Epictetus"],
- ["Do nothing which is of no use.","Miyamoto Musashi — commonly translated"],["Today is victory over yourself of yesterday.","Miyamoto Musashi — commonly translated"],
- ["Think lightly of yourself and deeply of the world.","Miyamoto Musashi — commonly translated"],["The Way is in training.","Miyamoto Musashi — commonly translated"],
- ["What stands in the way becomes the way.","Marcus Aurelius — modern rendering"],["Waste no more time arguing what a good man should be. Be one.","Marcus Aurelius"],
- ["If it is not right, do not do it; if it is not true, do not say it.","Marcus Aurelius"],
- ["He has the most who is most content with the least.","Diogenes — traditional attribution"],["I am looking for an honest man.","Diogenes — traditional account"],
- ["Excellence is not an act, but a habit.","Often attributed to Aristotle; wording disputed"],["Well begun is half done.","Aristotle — traditional attribution"],
- ["The impediment to action advances action. What stands in the way becomes the way.","Marcus Aurelius — translation varies"],
- ["The obstacle is the path; the work is the proof.","Original wording"],
- ["Discipline is choosing between what you want now and what you want most.","Popular saying — attribution uncertain"],
- ["You have power over your mind, not outside events.","Marcus Aurelius — translation varies"],
- ["It is not that we have a short time to live, but that we waste much of it.","Seneca"],
- ["The first and greatest victory is to conquer yourself.","Plato — traditional attribution"],
- ["Man is condemned to be free.","Jean-Paul Sartre"],
- ["One must imagine Sisyphus happy.","Albert Camus — translated"],
- ["The struggle itself toward the heights is enough to fill a human heart.","Albert Camus — translated"],
- ["The most difficult thing is the decision to act; the rest is merely tenacity.","Amelia Earhart — attribution varies"],
- ["The art of war is of vital importance to the State.","Sun Tzu, The Art of War — translation varies"],
- ["Appear weak when you are strong, and strong when you are weak.","Sun Tzu, The Art of War — translation varies"],
- ["Know yourself and know your enemy, and you need not fear the result of a hundred battles.","Sun Tzu — popular translation; wording varies"],
- ["What you do every day matters more than what you do once in a while.","Gretchen Rubin — commonly quoted"],
- ["Small disciplines repeated with consistency every day lead to great achievements gained slowly over time.","John C. Maxwell — attribution varies"],
- ["The man who has no imagination has no wings.","Muhammad Ali"],
- ["The more you know, the more you realize you don't know.","Socratic principle — paraphrase"],
- ["The secret of getting ahead is getting started.","Mark Twain — attribution disputed"],
- ["A man who procrastinates in his choosing will inevitably have his choice made for him by circumstance.","Hunter S. Thompson"],
- ["What matters is not what happens to you, but how you respond to it.","Epictetus — paraphrase"],
- ["Mastery is revealed in what you repeat when nobody is watching.","Original wording"],
- ["The way of the warrior is the resolute acceptance of death.","Miyamoto Musashi, The Book of Five Rings — translation varies"],
- ["You must understand that there is more than one path to the top of the mountain.","Miyamoto Musashi — translation varies"],
- ["Strategy is the art of making use of time and distance.","Miyamoto Musashi — paraphrase"],
- ["Greatness is not in never falling, but in rising every time we fall.","Often attributed to Confucius; attribution uncertain"],
- ["The future depends on what you do today.","Often attributed to Gandhi; attribution uncertain"],
- ["When you are content to be simply yourself and don't compare or compete, everybody will respect you.","Lao Tzu — translation varies"],
- ["He who conquers others is strong; he who conquers himself is mighty.","Lao Tzu — translation varies"],
- ["The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself.","George Bernard Shaw"],
- ["A person who never made a mistake never tried anything new.","Often attributed to Albert Einstein; attribution uncertain"],
- ["We are what we repeatedly do.","Often attributed to Aristotle; this wording is a later paraphrase"],
- ["The task is not to predict the future, but to be prepared for it.","Pericles — traditional attribution"],
- ["The strongest of all warriors are these two — Time and Patience.","Leo Tolstoy — attribution varies"],
- ["It is better to be a warrior in a garden than a gardener in a war.","Popular proverb; origin uncertain"],
- ["The man who moves a mountain begins by carrying away small stones.","Confucius — traditional attribution"],
- ["You have to die a few times before you can really live.","Charles Bukowski"],
- ["A man can do what he wills, but he cannot will what he wills.","Arthur Schopenhauer — translated"],
- ["The price of greatness is responsibility.","Winston Churchill — attribution disputed"],
- ["It is not enough to be busy; so are the ants. The question is: What are we busy about?","Henry David Thoreau"],
- ["The unexamined life is not worth living, but the unlived life is not worth examining.","Original wording"],
- ["Compare yourself to who you were yesterday, not to who someone else is today.","Jordan B. Peterson, 12 Rules for Life"],
- ["Set your house in perfect order before you criticize the world.","Jordan B. Peterson, 12 Rules for Life"],
- ["Never outshine the master.","Robert Greene, The 48 Laws of Power"],
- ["Understand: you are not the master of your fate, you are the servant of your actions.","Robert Greene-inspired principle — paraphrase"],
- ["Life can only be understood backwards; but it must be lived forwards.","Søren Kierkegaard — translated"],
- ["Anxiety is the dizziness of freedom.","Søren Kierkegaard — translated"],
- ["The condition of man is a condition of war of everyone against everyone.","Thomas Hobbes, Leviathan — abridged"],
- ["Covenants, without the sword, are but words.","Thomas Hobbes, Leviathan"],
- ["The greatest remedy for anger is delay.","Seneca"],
- ["The wise man does at once what the fool does finally.","Baltasar Gracián — translated"],
- ["Do not be afraid to give up the good to go for the great.","Often attributed to John D. Rockefeller; attribution uncertain"]
-];
-QUOTES.push(...[["Things pass not for what they are, but for what they seem.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"], ["A wise man gets more from his enemies than a fool from his friends.", "Baltasar Gracián, The Art of Worldly Wisdom"], ["Never open the door to a lesser evil, for other and greater ones invariably slink in after it.", "Baltasar Gracián, The Art of Worldly Wisdom"], ["Use human means as if there were no divine ones, and divine means as if there were no human.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"], ["What is good, if brief, is twice good.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"], ["Never act in a passion; if you do, all will be lost.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"], ["Knowledge and courage are the elements of greatness.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"], ["Know how to refuse; it is as important as knowing how to give.", "Baltasar Gracián, The Art of Worldly Wisdom — paraphrase"], ["Avoid victories over your superiors.", "Baltasar Gracián, The Art of Worldly Wisdom — translation varies"]]);
-function quote(){const n=new Date(),day=Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/864e5),block=Math.floor(n.getHours()/6),q=QUOTES[(day*4+block+(S.set.quoteOffset||0))%QUOTES.length];
- return {text:q[0],author:q[1],period:["Morning code","Day code","Evening code","Night code"][block]}}
-function motivation(){const active=S.streaks.filter(s=>s.status==="active"),best=active.reduce((m,s)=>Math.max(m,stats(s).run),0),completed=S.entries.length;
- if(best>=30)return {head:"Protect the standard.",body:`${best} days of consistency is evidence. Do not worship the streak; keep the practice worthy of repeating.`};
- if(best>=7)return {head:"This is becoming part of you.",body:`${best} days of follow-through. Keep the promise small enough to keep, and serious enough to matter.`};
- if(best>=2)return {head:"Keep the chain honest.",body:`You have ${best} consecutive days behind you. Today's action is how momentum becomes a pattern.`};
- if(completed>=10)return {head:"Return to the work.",body:"You have already built a record of showing up. Use it as evidence, not pressure. One deliberate action today."};
- if(completed>=1)return {head:"Begin again, deliberately.",body:"You have started leaving evidence of your life. Add one more honest page; the pattern will follow."};
- return {head:"Build a life you can look back on.",body:"Do not wait for a perfect mood. Record one thought, move one project forward, and give tomorrow something to build on."}}
-function vHome(){const te=S.entries.find(e=>e.date===today()),q=quote(),m=motivation(),photos=S.entries.reduce((n,e)=>n+(e.photos||[]).length,0),tasks=S.projects.reduce((n,p)=>n+(p.tasks||[]).filter(t=>!t.done).length,0),active=S.streaks.filter(s=>s.status==="active").length;
- const excerpt=te?exc(te):"A blank page is not a failure. It is an invitation.";
- view(`<div class="home"><div class="home-head"><div><div class="eyebrow">${S.set.name?"Welcome back, "+esc(S.set.name):"Odium Fati · Memento vivere"}</div><h1>Become through<br>what you do.</h1><div class="mu sm" style="margin-top:9px">${new Date().toLocaleDateString(undefined,{weekday:"long",day:"numeric",month:"long",year:"numeric"})}</div></div><div style="text-align:right;flex:none"><div class="clock" id="homeclock">${new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</div><div class="mu sm">your time, your life</div></div></div>
- <section class="code-card"><div class="code-label"><span>✦ ${q.period}</span><span>CODE ${String((Math.floor(Date.UTC(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())/864e5)*4+Math.floor(new Date().getHours()/6)+(S.set.quoteOffset||0))%QUOTES.length+1).padStart(2,"0")}</span></div><div class="code-quote">“${esc(q.text)}”</div><div class="code-author">— ${esc(q.author)}</div><div class="code-foot"><span class="mu sm">Keep this close until the next part of the day.</span><button data-a="nextQuote">Another code</button></div></section>
- <div class="section-line"><h2>Today</h2><span class="mu sm">${fl(today())}</span></div><div class="today-entry" data-a="write"><div class="today-mark">${te?"✎":"＋"}</div><div class="te-copy"><b>${te?esc(te.title||"Today's entry"):"Write today's entry"}</b><span>${te?esc(excerpt).slice(0,105):"Capture what matters before the day disappears."}</span></div><span class="mu">↗</span></div>
- <div class="home-grid today-panel"><div class="mini-stat"><strong>${S.entries.length}</strong><span>journal entries</span></div><div class="mini-stat"><strong>${photos}</strong><span>photographs kept</span></div><div class="mini-stat"><strong>${active}</strong><span>active streaks</span></div><div class="mini-stat"><strong>${S.projects.length}</strong><span>projects underway</span></div></div>
- <div class="section-line"><h2>Projects in motion</h2><a class="mu sm" href="#/projects">View all ↗</a></div>${S.projects.length?`<div class="grid">${S.projects.slice(0,2).map(projectCard).join("")}</div>`:`<div class="card mu sm">Ideas become real when they acquire a next action. Start a project, then keep its progress visible. <button class="btn mt" data-a="newProject">＋ Create a project</button></div>`}
- <div class="why-card"><div class="eyebrow">A reminder for this stage</div><b>${m.head}</b><p>${m.body}</p></div></div>`,()=>{const c=document.getElementById("homeclock");if(c)c.textContent=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})})}
+const QUOTES=[["Do nothing which is of no use.", "Miyamoto Musashi"], ["Today is victory over yourself of yesterday.", "Miyamoto Musashi"], ["Perceive that which cannot be seen with the eye.", "Miyamoto Musashi"], ["Think lightly of yourself and deeply of the world.", "Miyamoto Musashi"], ["The Way is in training.", "Miyamoto Musashi"], ["What stands in the way becomes the way.", "Marcus Aurelius"], ["Waste no more time arguing what a good man should be. Be one.", "Marcus Aurelius"], ["If it is not right, do not do it; if it is not true, do not say it.", "Marcus Aurelius"], ["Very little is needed to make a happy life; it is all within yourself.", "Marcus Aurelius"], ["You have power over your mind, not outside events.", "Marcus Aurelius"], ["My formula for greatness in a human being is amor fati.", "Friedrich Nietzsche"], ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"], ["Become who you are.", "Friedrich Nietzsche"], ["One must have chaos within to give birth to a dancing star.", "Friedrich Nietzsche"], ["I am a citizen of the world.", "Diogenes"], ["He has the most who is most content with the least.", "Diogenes"], ["I am looking for an honest man.", "Diogenes"], ["The unexamined life is not worth living.", "Socrates"], ["Wisdom begins in wonder.", "Socrates"], ["I know that I know nothing.", "Socrates"], ["The first and greatest victory is to conquer yourself.", "Plato"], ["The beginning is the most important part of the work.", "Plato"], ["Courage is knowing what not to fear.", "Plato"], ["Excellence is not an act, but a habit.", "Aristotle"], ["Well begun is half done.", "Aristotle"], ["It is the mark of an educated mind to entertain a thought without accepting it.", "Aristotle"], ["We suffer more often in imagination than in reality.", "Seneca"], ["No man is free who is not master of himself.", "Epictetus"]];
+function quote(){const n=new Date(),k=Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/864e5),q=QUOTES[k%QUOTES.length];
+ return `<p class="epi">“${esc(q[0])}”<br><b style="font-style:normal;font-size:12.5px">— ${esc(q[1])}</b></p>`}
+function vHome(){const te=S.entries.find(e=>e.date===today());
+ view(`<div class="home">${quote()}<button class="btn" data-a="write">✎ ${te?"Continue today’s entry":"Write today’s entry"}</button></div>`)}
 
 function vDiary(){view(`<div class="sp"><h1 style="margin:0;font-size:26px">My Journal</h1><button class="btn" data-a="write">✎ Write today</button></div><div class="mu sm" style="margin-top:6px">${S.entries.length} entries · ${S.entries.reduce((n,e)=>n+e.photos.length,0)} photographs</div><input id="q" class="mt" placeholder="Search titles, text, #tags, dates…" value="${esc(q)}"><div id="tl2"></div>`,()=>{paintD();
  $("#q").addEventListener("input",e=>{q=e.target.value;paintD()})})}
@@ -331,24 +243,17 @@ function dayModal(d,sid){const L=S.entries.filter(e=>e.date===d&&(!sid||(e.strea
  modal(`<div class="sp"><h3 style="margin:0">${fl(d)}</h3><button class="btn g s" data-a="x">✕</button></div>${L.map(eItem).join("")||'<div class="mu mt">Nothing recorded this day.</div>'}
  <div class="mt"><button class="btn" data-a="new" data-date="${d}" ${sid?`data-id="${sid}"`:""}>✎ Write for this day</button></div>`)}
 
-function projectCard(p){const tasks=p.tasks||[],done=tasks.filter(t=>t.done).length,pct=tasks.length?Math.round(done/tasks.length*100):0;
- return `<div class="project-card" data-a="project" data-id="${p.id}"><div class="sp"><h3>${esc(p.title||"Untitled project")}</h3><span class="tag-pill">${pct}%</span></div><div class="project-meta">Started ${fs(p.createdAt?new Date(p.createdAt).toISOString().slice(0,10):today())} · ${done}/${tasks.length} tasks done</div><div class="project-progress"><i style="width:${pct}%"></i></div><div class="mu sm mt">${esc(p.description||"No project description yet.").slice(0,115)}</div></div>`}
-function vProjects(){view(`<div class="sp"><div><div class="eyebrow">Make the abstract tangible</div><h1 style="margin:3px 0 0;font-size:28px">Projects</h1></div><button class="btn" data-a="newProject">＋ New project</button></div><p class="mu sm">A working record of what you set out to do, what you have done, and what comes next.</p><div class="home-grid mt"><div class="mini-stat"><strong>${S.projects.length}</strong><span>projects started</span></div><div class="mini-stat"><strong>${S.projects.reduce((n,p)=>n+(p.tasks||[]).filter(t=>t.done).length,0)}</strong><span>tasks completed</span></div></div><div class="grid mt">${S.projects.map(projectCard).join("")}</div>${S.projects.length?"":`<div class="card mt"><h3 class="serif" style="margin-top:0">Give an ambition a structure.</h3><p class="mu sm">Use a project for a semester, an art portfolio, a language, a business idea, a video series, or anything that needs more than one sitting.</p><button class="btn" data-a="newProject">Create your first project</button></div>`}`)}
-function newProjectForm(p){const editing=!!p;modal(`<div class="sp"><h3 style="margin:0">${editing?"Edit project":"New project"}</h3><button class="btn g s" data-a="x">✕</button></div><label class="sm mu">Project name</label><input id="pn" class="mt" maxlength="120" placeholder="e.g. Build my art portfolio" value="${esc(p?.title||"")}"><label class="sm mu" style="display:block;margin-top:14px">What does success look like?</label><textarea id="pd" class="mt" style="min-height:95px" placeholder="Purpose, intended outcome, constraints…">${esc(p?.description||"")}</textarea><div class="row mt"><button class="btn" data-a="saveProject" data-id="${p?.id||""}">${editing?"Save changes":"Create project"}</button><button class="btn g" data-a="x">Cancel</button></div>`)}
-function vProject(id){const p=S.projects.find(x=>x.id===id);if(!p){location.hash="#/projects";return}const tasks=p.tasks||[],done=tasks.filter(t=>t.done).length,pct=tasks.length?Math.round(done/tasks.length*100):0;
- view(`<a href="#/projects" class="mu sm">← Projects</a><div class="sp mt"><div><div class="eyebrow">Project file · ${fs(new Date(p.createdAt||Date.now()).toISOString().slice(0,10))}</div><h1 style="margin:4px 0;font-size:29px">${esc(p.title)}</h1></div><button class="btn g s" data-a="editProject" data-id="${p.id}">Edit</button></div><p class="prose">${esc(p.description||"Give this project a clear purpose. Edit its details when the direction becomes sharper.")}</p><div class="card mt"><div class="sp"><b>Progress</b><b class="serif">${pct}%</b></div><div class="project-progress"><i style="width:${pct}%"></i></div><div class="project-meta">${done} of ${tasks.length} tasks completed · ${tasks.length-done} remaining</div></div><div class="section-line"><h2>Next actions</h2><span class="mu sm">Small steps, visible progress</span></div><form id="taskform" class="row" style="align-items:stretch"><input id="tasktext" placeholder="Add a task or milestone…" maxlength="180"><button class="btn" type="submit">Add</button></form><div class="card mt">${tasks.map((t,i)=>`<div class="task-row"><button class="task-check ${t.done?"done":""}" data-a="toggleTask" data-id="${p.id}" data-task="${t.id}">${t.done?"✓":""}</button><div style="flex:1;min-width:0" class="${t.done?"task-done":""}">${esc(t.text)}</div><button class="btn d s" data-a="deleteTask" data-id="${p.id}" data-task="${t.id}">×</button></div>`).join("")||`<div class="mu sm">Nothing on the list yet. Add the next concrete action.</div>`}</div><div class="section-line"><h2>Visual references</h2><button class="btn g s" data-a="addProjectPhotos" data-id="${p.id}">＋ Add images</button></div><div class="ph mt">${(p.photos||[]).map(ph=>`<figure><img src="${ph.src}" alt="${esc(ph.caption||'Project reference')}"><button class="x" data-a="deleteProjectPhoto" data-id="${p.id}" data-photo="${ph.id}">✕</button><figcaption><input data-project-cap="${ph.id}" data-id="${p.id}" placeholder="Caption…" value="${esc(ph.caption||'')}"></figcaption></figure>`).join("")}</div><div class="section-line"><h2>Working notes</h2><span class="mu sm">Saved on this device</span></div><textarea id="projectnotes" class="project-note" placeholder="Decisions, observations, blockers, links to remember…">${esc(p.notes||"")}</textarea><div class="row mt"><button class="btn" data-a="saveProjectNotes" data-id="${p.id}">Save notes</button><button class="btn d" data-a="deleteProject" data-id="${p.id}">Delete project</button></div>`,()=>{const f=document.getElementById("taskform");if(f)f.onsubmit=async ev=>{ev.preventDefault();const input=document.getElementById("tasktext"),text=input.value.trim();if(!text)return;p.tasks=p.tasks||[];p.tasks.push({id:uid(),text,done:false,createdAt:Date.now()});p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);toast("Next action added")}})}
 function vSet(){const T=S.set.theme||document.documentElement.dataset.theme;
  view(`<h1 style="margin:0;font-size:26px">Settings</h1>
- <h2 style="font-size:18px;margin-top:20px">Profile & privacy</h2><div class="card"><label class="sm mu">Your name</label><input id="pname" class="mt" maxlength="40" placeholder="Shown on your home screen" value="${esc(S.set.name||"")}"><div class="set" style="margin-top:8px"><div><b class="sm">PIN lock</b><div class="mu sm">${S.set.pin?"PIN is on":"Keep your journal private"}</div></div><span class="row"><button class="btn g s" data-a="setPin">${S.set.pin?"Change":"Set PIN"}</button>${S.set.pin?`<button class="btn d s" data-a="clearPin">Remove</button>`:""}</span></div></div>
  <h2 style="font-size:18px;margin-top:20px">Theme</h2><div class="card"><div class="row">${Object.entries(COL).map(([k,c])=>`<button class="sw ${T===k?"on":""}" data-a="theme" data-t="${k}" style="background:${c}"></button>`).join("")}</div></div>
  <h2 style="font-size:18px;margin-top:20px">Backup & restore</h2><div class="card"><div class="mu sm">Last backup: ${S.set.lastBackup?new Date(S.set.lastBackup).toLocaleString():"never"}</div>
  <div class="row mt"><button class="btn" data-a="exp">⬇ Export backup</button><button class="btn g" data-a="imp">⬆ Restore</button></div>
- <div class="mu sm mt">Your journal, photos, streaks and projects are stored on this device. Export a backup regularly; online status does not mean your data is synced to a cloud account.</div></div>
+ <div class="mu sm mt">Your journal lives on this phone. Save a copy now and then to keep it safe.</div></div>
  <h2 style="font-size:18px;margin-top:20px;color:var(--dg)">Danger zone</h2><div class="card"><div class="sp"><span class="sm">Erase all entries, photos and streaks</span><button class="btn d s" data-a="wipe">Erase</button></div></div>
- <div class="mu sm mt" style="text-align:center"><i>Odium Fati · hatred of fate</i></div>`)}
+ <div class="mu sm mt" style="text-align:center"><i>Amor Fati · love of fate</i></div>`)}
 
 /* ---- backup ---- */
-async function exp(){const bk={app:"keepsake",version:3,exportedAt:new Date().toISOString(),streaks:S.streaks,entries:S.entries,projects:S.projects};
+async function exp(){const bk={app:"keepsake",version:2,exportedAt:new Date().toISOString(),streaks:S.streaks,entries:S.entries};
  const f=new File([JSON.stringify(bk)],`amorfati-backup-${today()}.json`,{type:"application/json"});
  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]})}else{const a=document.createElement("a");a.href=URL.createObjectURL(f);a.download=f.name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}}
  catch(e){if(e&&e.name==="AbortError")return;toast("Couldn’t save the backup file here");return}
@@ -356,7 +261,7 @@ async function exp(){const bk={app:"keepsake",version:3,exportedAt:new Date().to
 $("#bin").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;let b;
  try{b=JSON.parse(await f.text())}catch(_){toast("Not a valid backup");return}
  if(b.app!=="keepsake"||!Array.isArray(b.entries)||!Array.isArray(b.streaks)){toast("Backup failed validation");return}
- let n=0;for(const s of b.streaks)if(!sById(s.id)){await DB.put("streaks",s)}for(const p of (Array.isArray(b.projects)?b.projects:[]))if(!S.projects.some(x=>x.id===p.id)){await DB.put("projects",p)}
+ let n=0;for(const s of b.streaks)if(!sById(s.id)){await DB.put("streaks",s)}
  for(const e of b.entries)if(!eById(e.id)){e.photos=(e.photos||[]).map(p=>({id:p.id,cap:p.cap||p.caption||"",src:p.src||(p.data?`data:${p.type||"image/jpeg"};base64,${p.data}`:"")}));await DB.put("entries",e);n++}
  await load();toast(`Restored ${n} new entries ✦`);render()};
 
@@ -366,7 +271,7 @@ document.addEventListener("click",async ev=>{const el=ev.target.closest("[data-a
  case"x":closeM();break;
  case"write":{const e=S.entries.find(x=>x.date===today());go(e?"#/edit/id/"+e.id:"#/edit/new/"+today());break}
  case"new":go(`#/edit/new/${el.dataset.date||today()}${id?"/"+id:""}`);break;
- case"entry":go("#/entry/"+id);break;case"edit":go("#/edit/id/"+id);break;case"streak":go("#/streak/"+id);break;case"project":go("#/project/"+id);break;
+ case"entry":go("#/entry/"+id);break;case"edit":go("#/edit/id/"+id);break;case"streak":go("#/streak/"+id);break;
  case"back":if(ED&&ED.dirty&&!confirm("Discard unsaved changes?"))ev.preventDefault();else ED=null;break;
  case"pick":ED.streakIds.has(id)?ED.streakIds.delete(id):ED.streakIds.add(id);ED.dirty=1;el.classList.toggle("on");break;
  case"addp":$("#pin").click();break;case"rmp":ED.photos=ED.photos.filter(p=>p.id!==id);ED.dirty=1;phs();break;
@@ -383,26 +288,12 @@ document.addEventListener("click",async ev=>{const el=ev.target.closest("[data-a
   await DB.del("streaks",id);S.streaks=S.streaks.filter(s=>s.id!==id);closeM();toast("Streak deleted");location.hash="#/streaks";break;
  case"day":dayModal(el.dataset.date,id);break;case"calday":dayModal(el.dataset.date);break;
  case"cp":calM=new Date(calM.getFullYear(),calM.getMonth()-1,1);vCal();break;case"cn":calM=new Date(calM.getFullYear(),calM.getMonth()+1,1);vCal();break;
- case"setPin":{const p=prompt("Choose a 4-digit PIN:");if(p&&/^\d{4}$/.test(p)){S.set.pin=await hashPin(p);await saveSet();toast("PIN set");vSet()}else if(p)toast("PIN must be 4 digits");break}
- case"clearPin":S.set.pin=null;await saveSet();toast("PIN removed");vSet();break;
- case"newProject":newProjectForm();break;
- case"editProject":newProjectForm(S.projects.find(p=>p.id===id));break;
- case"saveProject":{const title=$("#pn").value.trim(),description=$("#pd").value.trim();if(!title){toast("Give the project a name");return}let p=id?S.projects.find(x=>x.id===id):null;if(p){p.title=title;p.description=description;p.updatedAt=Date.now()}else p={id:uid(),title,description,notes:"",tasks:[],createdAt:Date.now(),updatedAt:Date.now()};await DB.put("projects",p);await load();closeM();toast(id?"Project updated":"Project created");location.hash="#/project/"+p.id;render();break}
- case"toggleTask":{const p=S.projects.find(x=>x.id===id),t=p?.tasks?.find(x=>x.id===el.dataset.task);if(!p||!t)break;t.done=!t.done;p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);break}
- case"deleteTask":{const p=S.projects.find(x=>x.id===id);if(!p)break;p.tasks=(p.tasks||[]).filter(x=>x.id!==el.dataset.task);p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);break}
- case"saveProjectNotes":{const p=S.projects.find(x=>x.id===id);if(!p)break;p.notes=$("#projectnotes").value;p.updatedAt=Date.now();await DB.put("projects",p);await load();toast("Project notes saved");vProject(id);break}
- case"deleteProject":{if(!confirm("Delete this project and its tasks? This cannot be undone."))break;await DB.del("projects",id);await load();toast("Project deleted");location.hash="#/projects";render();break}
- case"nextQuote":{S.set.quoteOffset=(S.set.quoteOffset||0)+1;await saveSet();render();break}
- case"addProjectPhotos":{const p=S.projects.find(x=>x.id===id);if(p){document.getElementById("projectpin").dataset.project=id;document.getElementById("projectpin").click()}break}
- case"deleteProjectPhoto":{const p=S.projects.find(x=>x.id===id);if(!p)break;p.photos=(p.photos||[]).filter(x=>x.id!==el.dataset.photo);p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);break}
  case"theme":S.set.theme=el.dataset.t;await saveSet();theme();vSet();break;
  case"exp":exp();break;case"imp":$("#bin").click();break;
  case"persist":try{toast(await navigator.storage.persist()?"Data protected from auto-cleanup":"Browser declined — export backups regularly")}catch(_){toast("Not supported here")}break;
  case"wipe":modal(`<h3 style="margin:0 0 8px;color:var(--dg)">Erase everything?</h3><p class="sm">Type <b>DELETE</b> to confirm.</p><input id="wc"><div class="row mt"><button class="btn d" data-a="wipe2">Erase</button><button class="btn g" data-a="x">Cancel</button></div>`);break;
- case"wipe2":if($("#wc").value!=="DELETE"){toast("Type DELETE to confirm");return}await DB.clear("entries");await DB.clear("streaks");await DB.clear("projects");await load();closeM();toast("All data erased");location.hash="#/home";render();break}});
-document.addEventListener("change",async e=>{if(e.target.id==="pname"){S.set.name=e.target.value.trim();await saveSet();toast("Name saved")}});
-document.addEventListener("input",async e=>{const c=e.target.dataset.cap;if(c&&ED){const p=ED.photos.find(x=>x.id===c);if(p){p.cap=e.target.value;ED.dirty=1}}const pc=e.target.dataset.projectCap,id=e.target.dataset.id;if(pc&&id){const p=S.projects.find(x=>x.id===id),ph=p?.photos?.find(x=>x.id===pc);if(ph){ph.caption=e.target.value;p.updatedAt=Date.now();await DB.put("projects",p)}}});
- document.getElementById("projectpin").onchange=async ev=>{const files=[...ev.target.files],id=ev.target.dataset.project;ev.target.value="";const p=S.projects.find(x=>x.id===id);if(!p||!files.length)return;p.photos=p.photos||[];toast("Adding project images…");for(const f of files)p.photos.push({id:uid(),caption:"",src:await shrink(f)});p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);toast("Project images added")};
+ case"wipe2":if($("#wc").value!=="DELETE"){toast("Type DELETE to confirm");return}await DB.clear("entries");await DB.clear("streaks");await load();closeM();toast("All data erased");location.hash="#/home";render();break}});
+document.addEventListener("input",e=>{const c=e.target.dataset.cap;if(c&&ED){const p=ED.photos.find(x=>x.id===c);if(p){p.cap=e.target.value;ED.dirty=1}}});
 $("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeM()});
 $("#pin").onchange=async ev=>{const fs2=[...ev.target.files];ev.target.value="";if(!ED||!fs2.length)return;toast("Adding photos…");
  for(const f of fs2)ED.photos.push({id:uid(),cap:"",src:await shrink(f)});ED.dirty=1;phs();toast("Photos added ✦")};
@@ -410,19 +301,10 @@ addEventListener("beforeunload",e=>{if(ED&&ED.dirty){e.preventDefault();e.return
 function net(){const o=navigator.onLine;$("#net").innerHTML=`<span class="dot" style="background:${o?"#34c379":"#e5484d"}"></span> ${o?"online":"offline"}`}
 addEventListener("online",net);addEventListener("offline",net);
 new MutationObserver(net).observe($("#app"),{childList:true});net();
-let tc=today(),qb=Math.floor(new Date().getHours()/6);setInterval(()=>{if(tc!==today()){tc=today();render()}const nb=Math.floor(new Date().getHours()/6);if(nb!==qb){qb=nb;if(route()[0]==="home")render()}const c=document.getElementById("homeclock");if(c)c.textContent=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})},30000);
+let tc=today();setInterval(()=>{if(tc!==today()){tc=today();render()}},30000);
 
-async function hashPin(p){try{const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("amorfati:"+p));return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,"0")).join("")}catch(_){return "x"+btoa("amorfati:"+p)}}
-let pb="",hiddenAt=0;
-function showLock(){$("#lock").hidden=false;pb="";$("#lockMsg").textContent="Enter your PIN";$("#lockPad").innerHTML=[1,2,3,4,5,6,7,8,9,"",0,"⌫"].map(k=>k===""?"<div></div>":`<button data-k="${k}">${k}</button>`).join("");dots()}
-function dots(){$("#lockDots").innerHTML=[0,1,2,3].map(i=>`<i class="${i<pb.length?"f":""}"></i>`).join("")}
-$("#lockPad").addEventListener("click",ev=>{const b=ev.target.closest("[data-k]");if(!b)return;const k=b.dataset.k;if(k==="⌫")pb=pb.slice(0,-1);else if(pb.length<4)pb+=k;dots();
- if(pb.length===4)setTimeout(async()=>{if(await hashPin(pb)===S.set.pin){$("#lock").hidden=true;pb="";if(!started)start()}else{$("#lockMsg").textContent="Wrong PIN";pb="";dots();setTimeout(()=>$("#lockMsg").textContent="Enter your PIN",1200)}},120)});
-document.addEventListener("visibilitychange",()=>{if(document.hidden)hiddenAt=Date.now();else if(S.set.pin&&hiddenAt&&Date.now()-hiddenAt>60000&&$("#lock").hidden)showLock()});
-let started=false;async function start(){started=true;await autoDone();render()}
 (async()=>{try{await DB.open();await load()}catch(e){$("#app").innerHTML=`<div class="card">Storage failed to open: ${esc(e.message||e)}</div>`;return}
- theme();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}if(!("pin" in S.set)){S.set.pin=await hashPin("6623");await saveSet()}
- if(S.set.pin)showLock();else start()})();
+ theme();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}await autoDone();render()})();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
