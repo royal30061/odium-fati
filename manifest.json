@@ -1,14 +1,14 @@
 {
  "id": "./",
- "name": "Amor Fati",
- "short_name": "Amor Fati",
- "description": "Amor Fati \u2014 a quiet daily journal.",
+ "name": "Odium Fati",
+ "short_name": "Odium Fati",
+ "description": "Odium Fati \u2014 journal, streaks and projects.",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
  "orientation": "portrait",
- "background_color": "#221c14",
- "theme_color": "#141210",
+ "background_color": "#2a0b08",
+ "theme_color": "#170b0a",
  "icons": [
   {
    "src": "icon-192.png",
