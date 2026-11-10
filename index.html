@@ -39,7 +39,7 @@ html[data-theme=white] #wall::after{opacity:.86}
 main{max-width:760px;margin:0 auto;padding:16px 14px 120px}
 #top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
 #tabs{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;justify-content:center;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--ln);padding:6px 4px calc(8px + env(safe-area-inset-bottom,0px))}
-#tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;border-radius:12px;font-size:11px;color:var(--mu);min-width:62px}
+#tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;border-radius:12px;font-size:10.5px;color:var(--mu);min-width:0;flex:1}
 #tabs a.on{color:var(--tx);background:var(--bg2)}
 #tabs b{font-size:18px;font-weight:400}
 .card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:14px}
@@ -128,7 +128,7 @@ const DB={db:null,
 const S={entries:[],streaks:[],projects:[],set:{theme:null,lastBackup:null}};
 let ED=null,calM=new Date(new Date().getFullYear(),new Date().getMonth(),1),q="";
 async function load(){S.entries=await DB.all("entries");S.streaks=(await DB.all("streaks")).sort((a,b)=>a.createdAt-b.createdAt);S.projects=(await DB.all("projects")).sort((a,b)=>b.updatedAt-a.updatedAt);
- const m=(await DB.all("meta")).find(x=>x.key==="settings");S.set={theme:null,lastBackup:null,...(m?m.value:{})}}
+ const m=(await DB.all("meta")).find(x=>x.key==="settings");S.set={theme:null,lastBackup:null,...(m?m.value:{})};await loadRd()}
 const saveSet=()=>DB.put("meta",{key:"settings",value:S.set});
 const eById=id=>S.entries.find(e=>e.id===id),sById=id=>S.streaks.find(s=>s.id===id);
 function theme(){document.documentElement.dataset.theme=S.set.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"black":"white");
@@ -156,12 +156,46 @@ const exc=e=>{const t=(e.body||"").replace(/[#*]/g," ").replace(/\s+/g," ").trim
 
 /* ---- shell / router ---- */
 const route=()=>(location.hash.slice(1)||"/home").split("/").filter(Boolean);
-const TABS=[["home","Today","✦"],["diary","Journal","❝"],["projects","Projects","◇"],["cal","Calendar","▦"],["streaks","Streaks",FLAME],["settings","More","⚙"]];
+const TABS=[["home","Today","✦"],["diary","Journal","❝"],["projects","Projects","◇"],["reading","Reading","▤"],["cal","Calendar","▦"],["streaks","Streaks",FLAME],["settings","More","⚙"]];
 function view(h,after){$("#app").innerHTML=h;const c=route()[0];
  const on={entry:"diary",edit:"diary",streak:"streaks",project:"projects"}[c]||c;
  $("#tabs").innerHTML=TABS.map(([i,l,g])=>`<a href="#/${i}" class="${on===i?"on":""}"><b>${g}</b>${l}</a>`).join("");
  $("#tl").textContent=fs(today());wall(c==='home'?'home':c);after&&after();scrollTo(0,0)}
-function render(){const r=route();({diary:vDiary,entry:()=>vEntry(r[1]),edit:()=>vEdit(r[1],r[2],r[3]),streaks:vStreaks,streak:()=>vStreak(r[1]),cal:vCal,projects:vProjects,project:()=>vProject(r[1]),settings:vSet}[r[0]]||vHome)()}
+
+/* ---- Reading: one book per two weeks, one poem per week ---- */
+S.rd={anchor:null,books:[],poems:[]};
+async function loadRd(){const m=(await DB.all("meta")).find(x=>x.key==="reading");S.rd={anchor:null,books:[],poems:[],...(m?m.value:{})}}
+const saveRd=()=>DB.put("meta",{key:"reading",value:S.rd});
+const dow=d=>(fd(d).getDay()+6)%7,wk=d=>add(d,-dow(d)),dd=(a,b)=>Math.round((fd(b)-fd(a))/864e5);
+function rdStats(){const t=today(),R=S.rd;let cyc=null,bRun=0;
+ if(R.anchor){const i=Math.max(0,Math.floor(dd(R.anchor,t)/14)),st=add(R.anchor,i*14),en=add(st,13),inC=(b,s)=>b.finishedAt&&b.finishedAt>=s&&b.finishedAt<=add(s,13),done=R.books.some(b=>inC(b,st));
+  let k=done?i:i-1;while(k>=0&&R.books.some(b=>inC(b,add(R.anchor,k*14)))){bRun++;k--}cyc={start:st,end:en,done,left:dd(t,en)+1}}
+ const pw=new Set(R.poems.map(p=>wk(p.date))),wt=wk(t);let w=pw.has(wt)?wt:add(wt,-7),pRun=0;while(pw.has(w)){pRun++;w=add(w,-7)}
+ return{cyc,bRun,poemDone:pw.has(wt),pRun,poemLeft:7-dow(t),books:R.books.filter(b=>b.finishedAt).length}}
+function bookCard(b){const p=b.pages?Math.min(100,Math.round(b.read/b.pages*100)):0;
+ return `<div class="card ent" data-a="book" data-id="${b.id}"><div style="flex:1;min-width:0"><div class="sp"><b>${esc(b.title)}</b><span class="sm mu">${b.finishedAt?fs(b.finishedAt):(b.pages?p+"%":"reading")}</span></div><div class="mu sm">${esc(b.author||"")}</div>${!b.finishedAt&&b.pages?`<div class="bar mt"><i style="width:${p}%;background:var(--ac)"></i></div><div class="mu sm" style="margin-top:4px">${b.read||0} of ${b.pages} pages</div>`:""}${b.finishedAt&&b.notes?`<div class="mu sm mt">${esc(b.notes).slice(0,120)}</div>`:""}</div></div>`}
+function vReading(){const x=rdStats(),R=S.rd,cur=R.books.filter(b=>!b.finishedAt),fin=R.books.filter(b=>b.finishedAt).sort((a,b)=>b.finishedAt.localeCompare(a.finishedAt)),po=R.poems.slice().sort((a,b)=>b.date.localeCompare(a.date));
+ view(`<h1 style="margin:0;font-size:26px">Reading</h1>
+ <div class="card mt"><div class="sp"><b>Book · every two weeks</b><button class="btn s" data-a="newBook">＋ Add book</button></div>
+ <div class="mu sm mt">${x.cyc?(x.cyc.done?"✓ Finished this cycle. Next one starts "+fs(add(x.cyc.end,1))+".":`${x.cyc.left} day${x.cyc.left===1?"":"s"} left · cycle ${fs(x.cyc.start)} – ${fs(x.cyc.end)}`):"Add your first book to start your two-week cycle."}</div>
+ <div class="mu sm">${x.bRun} cycle streak · ${x.books} book${x.books===1?"":"s"} finished</div></div>
+ <div class="card mt"><div class="sp"><b>Poem · every week</b><button class="btn s" data-a="newPoem">＋ Recited</button></div>
+ <div class="mu sm mt">${x.poemDone?"✓ Recited this week.":`${x.poemLeft} day${x.poemLeft===1?"":"s"} left this week`}</div>
+ <div class="mu sm">${x.pRun} week streak · ${R.poems.length} recited</div></div>
+ ${cur.length?`<h2 class="serif mu" style="font-size:15px;margin:22px 0 0"><i>Currently reading</i></h2>${cur.map(bookCard).join("")}`:""}
+ ${fin.length?`<h2 class="serif mu" style="font-size:15px;margin:22px 0 0"><i>Finished</i></h2>${fin.map(bookCard).join("")}`:""}
+ ${po.length?`<h2 class="serif mu" style="font-size:15px;margin:22px 0 0"><i>Poems recited</i></h2>${po.slice(0,30).map(p=>`<div class="card ent" data-a="poem" data-id="${p.id}"><div style="flex:1"><div class="sp"><b>${esc(p.title)}</b><span class="sm mu">${fs(p.date)}</span></div><div class="mu sm">${esc(p.author||"")}${p.note?" · "+esc(p.note).slice(0,80):""}</div></div></div>`).join("")}`:""}`)}
+function bookForm(b){const e=!!b;b=b||{};modal(`<div class="sp"><h3 style="margin:0">${e?"Book":"Add a book"}</h3><button class="btn g s" data-a="x">✕</button></div>
+ <input id="bt" class="mt" placeholder="Title" value="${esc(b.title||"")}"><input id="ba" class="mt" placeholder="Author" value="${esc(b.author||"")}">
+ <div class="grid mt" style="grid-template-columns:1fr 1fr"><div><label class="sm mu">Total pages</label><input id="bp" type="number" min="0" value="${b.pages||""}"></div><div><label class="sm mu">Pages read</label><input id="br" type="number" min="0" value="${b.read||""}"></div></div>
+ <label class="sm mu" style="display:block;margin-top:12px">Key takeaways</label><textarea id="bn" class="mt" style="min-height:110px">${esc(b.notes||"")}</textarea>
+ <div class="row mt"><button class="btn" data-a="saveBook" data-id="${b.id||""}">Save</button>${e&&!b.finishedAt?`<button class="btn g" data-a="finishBook" data-id="${b.id}">Finished ✓</button>`:""}${e&&b.finishedAt?`<button class="btn g" data-a="reopenBook" data-id="${b.id}">Reopen</button>`:""}${e?`<button class="btn d" data-a="delBook" data-id="${b.id}">Delete</button>`:""}</div>`)}
+function poemForm(p){const e=!!p;p=p||{};modal(`<div class="sp"><h3 style="margin:0">${e?"Poem":"Poem recited"}</h3><button class="btn g s" data-a="x">✕</button></div>
+ <input id="pt" class="mt" placeholder="Poem title" value="${esc(p.title||"")}"><input id="pa" class="mt" placeholder="Poet" value="${esc(p.author||"")}">
+ <label class="sm mu" style="display:block;margin-top:12px">Date recited</label><input id="pdt" type="date" value="${p.date||today()}">
+ <input id="pnote" class="mt" placeholder="Note — how it went (optional)" value="${esc(p.note||"")}">
+ <div class="row mt"><button class="btn" data-a="savePoem" data-id="${p.id||""}">Save</button>${e?`<button class="btn d" data-a="delPoem" data-id="${p.id}">Delete</button>`:""}</div>`)}
+function render(){const r=route();({reading:vReading,diary:vDiary,entry:()=>vEntry(r[1]),edit:()=>vEdit(r[1],r[2],r[3]),streaks:vStreaks,streak:()=>vStreak(r[1]),cal:vCal,projects:vProjects,project:()=>vProject(r[1]),settings:vSet}[r[0]]||vHome)()}
 addEventListener("hashchange",render);
 let wt=null,wi=0,wp=null,wl=0;
 function wall(page){const el=$("#wall"),L=WALLS[page];clearInterval(wt);
@@ -348,7 +382,7 @@ function vSet(){const T=S.set.theme||document.documentElement.dataset.theme;
  <div class="mu sm mt" style="text-align:center"><i>Odium Fati · hatred of fate</i></div>`)}
 
 /* ---- backup ---- */
-async function exp(){const bk={app:"keepsake",version:3,exportedAt:new Date().toISOString(),streaks:S.streaks,entries:S.entries,projects:S.projects};
+async function exp(){const bk={app:"keepsake",version:3,exportedAt:new Date().toISOString(),streaks:S.streaks,entries:S.entries,projects:S.projects,reading:S.rd};
  const f=new File([JSON.stringify(bk)],`amorfati-backup-${today()}.json`,{type:"application/json"});
  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]})}else{const a=document.createElement("a");a.href=URL.createObjectURL(f);a.download=f.name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}}
  catch(e){if(e&&e.name==="AbortError")return;toast("Couldn’t save the backup file here");return}
@@ -356,7 +390,7 @@ async function exp(){const bk={app:"keepsake",version:3,exportedAt:new Date().to
 $("#bin").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;let b;
  try{b=JSON.parse(await f.text())}catch(_){toast("Not a valid backup");return}
  if(b.app!=="keepsake"||!Array.isArray(b.entries)||!Array.isArray(b.streaks)){toast("Backup failed validation");return}
- let n=0;for(const s of b.streaks)if(!sById(s.id)){await DB.put("streaks",s)}for(const p of (Array.isArray(b.projects)?b.projects:[]))if(!S.projects.some(x=>x.id===p.id)){await DB.put("projects",p)}
+ let n=0;if(b.reading){const r=b.reading;for(const k of["books","poems"])for(const x of(r[k]||[]))if(!S.rd[k].some(y=>y.id===x.id))S.rd[k].push(x);if(!S.rd.anchor)S.rd.anchor=r.anchor||null;await saveRd()}for(const s of b.streaks)if(!sById(s.id)){await DB.put("streaks",s)}for(const p of (Array.isArray(b.projects)?b.projects:[]))if(!S.projects.some(x=>x.id===p.id)){await DB.put("projects",p)}
  for(const e of b.entries)if(!eById(e.id)){e.photos=(e.photos||[]).map(p=>({id:p.id,cap:p.cap||p.caption||"",src:p.src||(p.data?`data:${p.type||"image/jpeg"};base64,${p.data}`:"")}));await DB.put("entries",e);n++}
  await load();toast(`Restored ${n} new entries ✦`);render()};
 
@@ -385,6 +419,21 @@ document.addEventListener("click",async ev=>{const el=ev.target.closest("[data-a
  case"cp":calM=new Date(calM.getFullYear(),calM.getMonth()-1,1);vCal();break;case"cn":calM=new Date(calM.getFullYear(),calM.getMonth()+1,1);vCal();break;
  case"setPin":{const p=prompt("Choose a 4-digit PIN:");if(p&&/^\d{4}$/.test(p)){S.set.pin=await hashPin(p);await saveSet();toast("PIN set");vSet()}else if(p)toast("PIN must be 4 digits");break}
  case"clearPin":S.set.pin=null;await saveSet();toast("PIN removed");vSet();break;
+ case"newBook":bookForm();break;case"book":bookForm(S.rd.books.find(b=>b.id===id));break;
+ case"saveBook":case"finishBook":{const t=$("#bt").value.trim();if(!t){toast("Add the title");return}
+  const f={title:t,author:$("#ba").value.trim(),pages:+$("#bp").value||0,read:+$("#br").value||0,notes:$("#bn").value};
+  let b=id?S.rd.books.find(x=>x.id===id):null;
+  if(b)Object.assign(b,f);else{b={id:uid(),startedAt:today(),finishedAt:null,...f};S.rd.books.push(b);if(!S.rd.anchor)S.rd.anchor=wk(today())}
+  if(a==="finishBook"){b.finishedAt=today();if(b.pages)b.read=b.pages}
+  await saveRd();closeM();toast(a==="finishBook"?"Book finished ✦":"Saved");render();break}
+ case"reopenBook":{const b=S.rd.books.find(x=>x.id===id);b.finishedAt=null;await saveRd();closeM();render();break}
+ case"delBook":S.rd.books=S.rd.books.filter(x=>x.id!==id);await saveRd();closeM();render();break;
+ case"newPoem":poemForm();break;case"poem":poemForm(S.rd.poems.find(p=>p.id===id));break;
+ case"savePoem":{const t=$("#pt").value.trim();if(!t){toast("Add the poem’s title");return}
+  const f={title:t,author:$("#pa").value.trim(),date:$("#pdt").value||today(),note:$("#pnote").value.trim()};
+  let p=id?S.rd.poems.find(x=>x.id===id):null;if(p)Object.assign(p,f);else S.rd.poems.push({id:uid(),...f});
+  await saveRd();closeM();toast("Recitation logged ✦");render();break}
+ case"delPoem":S.rd.poems=S.rd.poems.filter(x=>x.id!==id);await saveRd();closeM();render();break;
  case"newProject":newProjectForm();break;
  case"editProject":newProjectForm(S.projects.find(p=>p.id===id));break;
  case"saveProject":{const title=$("#pn").value.trim(),description=$("#pd").value.trim();if(!title){toast("Give the project a name");return}let p=id?S.projects.find(x=>x.id===id):null;if(p){p.title=title;p.description=description;p.updatedAt=Date.now()}else p={id:uid(),title,description,notes:"",tasks:[],createdAt:Date.now(),updatedAt:Date.now()};await DB.put("projects",p);await load();closeM();toast(id?"Project updated":"Project created");location.hash="#/project/"+p.id;render();break}
@@ -399,7 +448,7 @@ document.addEventListener("click",async ev=>{const el=ev.target.closest("[data-a
  case"exp":exp();break;case"imp":$("#bin").click();break;
  case"persist":try{toast(await navigator.storage.persist()?"Data protected from auto-cleanup":"Browser declined — export backups regularly")}catch(_){toast("Not supported here")}break;
  case"wipe":modal(`<h3 style="margin:0 0 8px;color:var(--dg)">Erase everything?</h3><p class="sm">Type <b>DELETE</b> to confirm.</p><input id="wc"><div class="row mt"><button class="btn d" data-a="wipe2">Erase</button><button class="btn g" data-a="x">Cancel</button></div>`);break;
- case"wipe2":if($("#wc").value!=="DELETE"){toast("Type DELETE to confirm");return}await DB.clear("entries");await DB.clear("streaks");await DB.clear("projects");await load();closeM();toast("All data erased");location.hash="#/home";render();break}});
+ case"wipe2":if($("#wc").value!=="DELETE"){toast("Type DELETE to confirm");return}await DB.del("meta","reading");await DB.clear("entries");await DB.clear("streaks");await DB.clear("projects");await load();closeM();toast("All data erased");location.hash="#/home";render();break}});
 document.addEventListener("change",async e=>{if(e.target.id==="pname"){S.set.name=e.target.value.trim();await saveSet();toast("Name saved")}});
 document.addEventListener("input",async e=>{const c=e.target.dataset.cap;if(c&&ED){const p=ED.photos.find(x=>x.id===c);if(p){p.cap=e.target.value;ED.dirty=1}}const pc=e.target.dataset.projectCap,id=e.target.dataset.id;if(pc&&id){const p=S.projects.find(x=>x.id===id),ph=p?.photos?.find(x=>x.id===pc);if(ph){ph.caption=e.target.value;p.updatedAt=Date.now();await DB.put("projects",p)}}});
  document.getElementById("projectpin").onchange=async ev=>{const files=[...ev.target.files],id=ev.target.dataset.project;ev.target.value="";const p=S.projects.find(x=>x.id===id);if(!p||!files.length)return;p.photos=p.photos||[];toast("Adding project images…");for(const f of files)p.photos.push({id:uid(),caption:"",src:await shrink(f)});p.updatedAt=Date.now();await DB.put("projects",p);await load();vProject(id);toast("Project images added")};
